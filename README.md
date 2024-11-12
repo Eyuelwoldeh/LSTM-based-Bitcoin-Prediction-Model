@@ -40,8 +40,29 @@ The data is preprocessed as follows:
 
 - Dates are parsed and converted to the datetime format.
 - Non-numeric characters (such as commas, percentage signs, and dollar signs) are removed from the "Open" column.
+```bash
+df = pd.read_csv('Bitcoin-2018min.csv')
+df.index = pd.to_datetime(df['Date'], format='%m/%d/%Y')
+df.drop(columns=['Date'], inplace=True)
+df['Open'] = df['Open'].replace({',': '', '%': '', '$': ''}, regex=True)
+df.sort_values(by='Date', inplace=True)
+```
 - The "Open" column is converted to numeric data and missing values are handled.
+```bash
+print(df['Open'].dtype)
+df['Open'] = pd.to_numeric(df['Open'], errors='coerce')
+df['Open'] = df['Open'].dropna()
+print(df['Open'].dtype)
+temp_d = df['Open']
+temp_d
+```
 - The data is normalized using the `MinMaxScaler` to ensure that all values fall within the range of 0 and 1, which helps improve model performance.
+```bash
+from sklearn.preprocessing import MinMaxScaler
+
+scaler=MinMaxScaler(feature_range=(0,1))
+temp_d=scaler.fit_transform(np.array(temp_d).reshape(-1,1))
+```
 
 ## Model Architecture
 
