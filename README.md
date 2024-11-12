@@ -136,7 +136,3 @@ To overcome the limitations mentioned above and improve the accuracy and robustn
 4. **Incorporating External Events**: Enhancing the model by integrating sentiment analysis or external financial data to account for events that drive significant market changes.
 5. **Longer Prediction Horizon**: Adapting the model for longer-term predictions or developing a hybrid model that incorporates both short-term and long-term factors.
 6. **Real-time Trading Simulation**: Testing the model in a real-time trading environment to assess its practical viability, including evaluating its ability to make profitable decisions in volatile market conditions.
-
-## Conclusion
-
-This project demonstrates the potential of LSTM-based models for predicting Bitcoin prices based on historical data. While the model achieves decent results in terms of forecasting short-term price movements, several challenges remain, including data quality, model interpretability, and market unpredictability. Future enhancements to the model can improve its performance and scalability, making it a more robust tool for cryptocurrency price prediction.
